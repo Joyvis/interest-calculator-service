@@ -8,6 +8,9 @@ class Installment < ApplicationRecord
 
   validates_uniqueness_of :uuid
 
+  validates :present_value, :number_of_installments, :monthly_interest_rate,
+            numericality: { other_than: 0 }
+
   private
 
   def generate_uuid
