@@ -1,24 +1,25 @@
-# README
+# Interest Calculator Service
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Aplicação para calculo de parcelas
 
-Things you may want to cover:
+## Como utilizar
 
-* Ruby version
+Após clonar o projeto na pasta de sua preferência, acesse a pasta raiz do projeto e execute os seguintes comandos:
+<pre>
+bundle install
+rake db:create
+rake db:migrate
+</pre>
 
-* System dependencies
+### Testes
 
-* Configuration
+<pre>
+rspec spec
+</pre>
 
-* Database creation
+### Subir servidor da aplicação
+<pre>
+rails s
+</pre>
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Após o procedimento ser concluído, basta realizar suas requisições para `` http://localhost:3000/installments ``.
