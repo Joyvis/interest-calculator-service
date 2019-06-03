@@ -50,4 +50,36 @@ RSpec.describe InstallmentsController, type: :controller do
       end
     end
   end
+
+  describe 'creating a installment' do
+    before do
+      post :create, params: installment_params
+    end
+
+    context 'with valid params' do
+      let(:installment_params) { attributes_for(:installment) }
+
+      it 'installment created' do
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context 'with invalid params' do
+      let(:installment_params) do
+        attributes_for(:installment, present_value: 0)
+      end
+
+      it 'installment not created' do
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+    end
+
+    context 'without params' do
+      let(:installment_params) { {} }
+
+      it 'installment not created' do
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+    end
+  end
 end

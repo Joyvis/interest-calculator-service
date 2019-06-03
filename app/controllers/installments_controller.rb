@@ -2,6 +2,13 @@
 
 class InstallmentsController < ApplicationController
   def create
+    installment = PriceRules.calculate(installment_params)
+
+    if installment.save
+      render_success installment
+    else
+      render_error installment
+    end
   end
 
   def show
