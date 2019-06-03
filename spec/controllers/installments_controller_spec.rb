@@ -34,4 +34,20 @@ RSpec.describe InstallmentsController, type: :controller do
       end
     end
   end
+
+  describe 'destroying a installment' do
+    before do
+      delete :destroy, params: { id: installment_id }
+    end
+
+    let(:installments) { create_list(:installment, 2) }
+
+    context 'with a valid uidd' do
+      let(:installment_id) { installments.first.uuid }
+
+      it 'installment was destroyed' do
+        expect(Installment.all.size).to eq(1)
+      end
+    end
+  end
 end
