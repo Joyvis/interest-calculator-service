@@ -6,6 +6,7 @@ class InstallmentsController < ApplicationController
 
   def show
     installment = Installment.find_by(uuid: params[:id])
+    render_success installment
   end
 
   def destroy
