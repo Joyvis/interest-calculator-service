@@ -11,6 +11,9 @@ class InstallmentsController < ApplicationController
 
   def destroy
     installment = Installment.find_by(uuid: params[:id])
+    installment.destroy
+
+    render_success installment
   end
 
   private
