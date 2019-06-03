@@ -7,6 +7,7 @@ gem 'rails', '~> 5.2.3'
 gem 'puma', '~> 3.11'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'sqlite3', '~> 1.4.1'
+gem 'active_model_serializers', '~> 0.10.0'
 
 group :test do
   gem 'factory_bot_rails'
